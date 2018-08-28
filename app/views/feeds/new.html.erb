@@ -1,0 +1,5 @@
+	<%= simple_form_for @feeds do |f| %>
+		<%= f.label :text, 'Create Feed' %>
+		<%= f.input :text, as: :text, label: false %>
+		<%= f.button :submit %>
+	<% end %>

@@ -1,0 +1,11 @@
+
+<ul class="nav nav-tabs navbar-static-top">
+  <li role="presentation" class="active"><%= link_to 'Home', root_path %></li>
+  <li role="presentation" class="active"><%= link_to 'Search Friends', search_path %></li>
+  <!--<li role="presentation" class="active"><%= link_to 'Create Feed', new_feed_path %></li>-->
+  <li role="presentation" class="active"><%= link_to 'Profile', profile_path %></li>
+  <li role="presentation" class="active"><%= link_to 'Requests', requests_path %></li>
+  <li role="presentation" class="active"><%= link_to 'Groups', groups_path %></li>
+  <li role="presentation" class="active"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+</ul>
+

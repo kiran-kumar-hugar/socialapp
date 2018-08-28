@@ -1,0 +1,40 @@
+<% if @type == 'posts'%>
+
+  <h1>My Posts</h1>
+  <ul class="list-group">
+  <% if @feeds.any? %>
+      <% @feeds.each do |feed| %>
+        <li class="list-group-item">
+          <%= feed.text %>
+        </li>
+      <% end %>
+
+  <% else %>
+    <li class="list-group-item">You have no posts yet. Try creating your first post.</li>
+  <% end %>
+ </ul>
+<%= will_paginate @feeds, :params => { :type => 'posts' }%>
+<% else %>
+
+<h1>My Friends</h1>
+<% if @results.any? %>
+  <table class="table">
+    <tbody>
+      <th scope="col">Name</th>
+      <th scope="col">Email Id</th>
+      <% @results.each do |result| %>
+        <tr>
+          <td><%= result.name %></td>
+          <td><%= result.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <ul class="list-group">
+    <li class="list-group-item">You dont have friends yet.</li>
+  </ul>
+<% end %>
+  
+
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <tbody >
+    <tr><td><b>Group Name</b></td></tr>
+    <tr>
+      <td><%= @group.name %></td>
+			
+    </tr>
+    <tr><td><b>Admins List</b></td></tr>
+    <% @group.groupadmins.each do |admin| %>
+    	<tr>
+    		<td><%= User.find_by(id: admin.user_id).name %></td>	 
+    	</tr> 	     
+    <% end %>
+    <tr><td><b>Action</b></td></tr>
+    	<tr>
+    		<td><%= link_to 'Edit', edit_group_path(@group) %></td>
+    	</tr>
+    	<tr>
+    		<td><%= link_to 'Back', groups_path %></td>
+    	</tr>
+  </tbody>
+</table>

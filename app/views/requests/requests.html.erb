@@ -1,0 +1,24 @@
+<p id="status" style="display: none"></p>
+<h1>Requests</h1>
+
+<table class="table">
+  <tbody>
+    <% unless @users.nil? %>
+    <% @users.each do |request| %>
+      <tr>
+        <td><%= request.name %></td>
+        <td>
+		      <%= link_to "Accept Request", requests_decide_request_path(id: request.id, type: 'accepted'), remote: true, method: :post %>
+        </td>
+        <td>
+		      <%= link_to "Reject Request", requests_decide_request_path(id: request.id, type: 'rejected'), remote: true, method: :post %>
+        </td>
+      </tr>
+    <% end %>
+    <% else %>
+      <tr>
+        <td>No pending requests are there for you</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

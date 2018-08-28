@@ -1,0 +1,14 @@
+
+  <ul class="nav nav-tabs">
+  <li class="nav-item">
+     <%= link_to "My Posts", get_profile_content_path(type: 'posts'), remote: true, method: :get %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "My Friends", get_profile_content_path(type: 'friends'), remote: true, method: :get %>
+  </li>
+</ul>
+<div class="col-md-12" id="profile-content">
+  <%= render "get_profile_content" %>
+</div>
+
+

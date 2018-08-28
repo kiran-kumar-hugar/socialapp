@@ -1,0 +1,25 @@
+<p id="status" style="display: none"></p>
+<h1>Search Friends</h1>
+<%= search_form_for @q, url: search_path  do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+  <%= link_to "Clear Search", search_path %>
+<% end %>
+<% if @search_response.any?%>
+<h2>Search Results</h2>
+	<table class="table">
+		  <tbody>
+		    <% @search_response.each do |friend| %>
+		      <tr>
+		        <td><%= friend.name %></td>
+		        <td>
+		        	<%= link_to "Send Friend Request", send_request_path(friend_id: friend.id), class: "send-request", remote: true, method: :post %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+	</table>
+	
+<% end %>

@@ -1,0 +1,23 @@
+<%= simple_form_for @posts do |f| %>
+	<%= f.label :text, 'Create Feed' %>
+	<div>
+		<%= f.text_area :text, :class => "tinymce", :rows => 5, :cols => 120 %>
+	</div>
+	<%= f.button :submit, class: "btn btn-primary mb-2 feed-submit" %>
+<% end %>
+
+<h1>Social Feeds</h1>
+<ul class="list-group">
+<% if @feeds.any? %>
+    <% @feeds.each do |feed| %>
+      <li class="list-group-item">
+        <td><%= feed.text %></td>
+      </li>
+    <% end %>
+<% else %>
+	<li class="list-group-item">No social feeds from your friends</li>
+<% end %>
+ </ul>
+ <%= will_paginate @feeds, :params => { :type => 'posts' }%>
+
+ <%= tinymce %>
