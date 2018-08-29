@@ -13,9 +13,8 @@
   </head>
 
   <body>
-    <% if controller.controller_name != 'sessions' && controller.controller_name != 'registrations' && controller.controller_name != 'passwords'  %>
     <%= render "layouts/navigation" %>
-    <% end %>
+    
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
@@ -25,5 +24,6 @@
     <div class="col-md-12 col-sm-12 col-xs-12 main-content">
       <%= yield %>
     </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>
